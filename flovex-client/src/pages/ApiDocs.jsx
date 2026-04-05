@@ -826,7 +826,7 @@ function CodeBlock({ code }) {
 }
 
 function buildCodeExamples(ep) {
-  const baseUrl = window.location.origin;
+  const baseUrl = import.meta.env.VITE_API_URL || window.location.origin;
 
   // Build path (replace :id placeholder with example)
   const exampleId = '664abc123';
