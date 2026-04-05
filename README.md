@@ -13,7 +13,7 @@ A full-stack financial dashboard built as an assignment submission for the **Fro
 | Service  | URL                                                  |
 |----------|------------------------------------------------------|
 | Frontend | https://flovex.vercel.app                            |
-| API      | https://flovex-api.onrender.com                      |
+| API      | https://flovex-api.vercel.app                        |
 
 ---
 
@@ -184,7 +184,7 @@ Quick overview:
 1. Create a **Web Service** on Render pointed at `flovex-server/`
 2. Set `MONGODB_URI`, `NODE_ENV=production`, and `ALLOWED_ORIGINS` (your Vercel URL)
 3. Build command: `npm install` — Start command: `npm start`
-4. Copy the generated `https://flovex-api.onrender.com` URL
+4. Copy the generated `https://flovex-api.vercel.app` URL
 
 ### Frontend → Vercel
 

@@ -91,7 +91,7 @@ The Vite proxy in [vite.config.js](vite.config.js) forwards all `/api/*` request
 
 | Variable        | Required in production | Description                                        |
 |-----------------|------------------------|----------------------------------------------------|
-| `VITE_API_URL`  | Yes                    | Full URL of the backend, e.g. `https://flovex-api.onrender.com` (no trailing slash) |
+| `VITE_API_URL`  | Yes                    | Full URL of the backend, e.g. `https://flovex-api.vercel.app` (no trailing slash) |
 
 In development, leave `VITE_API_URL` empty — the Vite proxy handles routing.
 
@@ -125,7 +125,7 @@ On the configuration screen:
 In the **Environment Variables** section, add:
 
 ```
-VITE_API_URL = https://your-render-service.onrender.com
+VITE_API_URL = https://flovex-api.vercel.app
 ```
 
 Replace the URL with your actual Render backend URL (see [flovex-server README](../flovex-server/README.md)).

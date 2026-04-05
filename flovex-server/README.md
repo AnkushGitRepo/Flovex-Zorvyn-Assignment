@@ -189,7 +189,7 @@ In the **Environment** tab, add the following key-value pairs:
 Click **Create Web Service**. Render will install dependencies and start the server. The service URL will be something like:
 
 ```
-https://flovex-api.onrender.com
+https://flovex-api.vercel.app
 ```
 
 Copy this URL — you'll need it as `VITE_API_URL` in your Vercel frontend config.
