@@ -12,8 +12,8 @@ A full-stack financial dashboard built as an assignment submission for the **Fro
 
 | Service  | URL                                                  |
 |----------|------------------------------------------------------|
-| Frontend | *(add your Vercel URL after deployment)*             |
-| API      | *(add your Render URL after deployment)*             |
+| Frontend | https://flovex.vercel.app                            |
+| API      | https://flovex-api.onrender.com                      |
 
 ---
 
