@@ -4,7 +4,9 @@ import { ChevronRight, Play, Copy, Check, BookOpen, Zap, Code2, Sparkles, X } fr
 
 // ─── AI Agent Prompt ─────────────────────────────────────────────────────────
 
-const AI_AGENT_PROMPT = `You are building an application that integrates with the Flovex Finance Dashboard REST API. Below is the complete API reference. The base URL is the server origin (e.g. http://localhost:5700 in development). All responses follow the envelope: { "success": boolean, "data": <payload>, "meta": { "total", "page", "limit" } }.
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+
+const AI_AGENT_PROMPT = `You are building an application that integrates with the Flovex Finance Dashboard REST API. Below is the complete API reference. The base URL is ${API_BASE}. All responses follow the envelope: { "success": boolean, "data": <payload>, "meta": { "total", "page", "limit" } }.
 
 ═══════════════════════════════════════════════
 FLOVEX FINANCE API — COMPLETE REFERENCE
@@ -335,14 +337,14 @@ QUICK-START EXAMPLE (JavaScript)
 ═══════════════════════════════════════════════
 
 // Fetch dashboard summary
-const stats = await fetch('/api/dashboard/stats').then(r => r.json());
+const stats = await fetch('${API_BASE}/api/dashboard/stats').then(r => r.json());
 console.log(stats.data.balance); // e.g. 142500
 
 // List last 10 food expenses
-const txns = await fetch('/api/transactions?category=Food&type=expense&limit=10').then(r => r.json());
+const txns = await fetch('${API_BASE}/api/transactions?category=Food&type=expense&limit=10').then(r => r.json());
 
 // Create a new transaction
-const created = await fetch('/api/transactions', {
+const created = await fetch('${API_BASE}/api/transactions', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -354,14 +356,14 @@ const created = await fetch('/api/transactions', {
 }).then(r => r.json());
 
 // Update a transaction
-await fetch(\`/api/transactions/\${created.data._id}\`, {
+await fetch(\`${API_BASE}/api/transactions/\${created.data._id}\`, {
   method: 'PUT',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ status: 'pending' }),
 });
 
 // Delete a transaction
-await fetch(\`/api/transactions/\${created.data._id}\`, { method: 'DELETE' });
+await fetch(\`${API_BASE}/api/transactions/\${created.data._id}\`, { method: 'DELETE' });
 `;
 
 // ─── AI Prompt Banner ────────────────────────────────────────────────────────
@@ -826,7 +828,7 @@ function CodeBlock({ code }) {
 }
 
 function buildCodeExamples(ep) {
-  const baseUrl = import.meta.env.VITE_API_URL || window.location.origin;
+  const baseUrl = API_BASE;
 
   // Build path (replace :id placeholder with example)
   const exampleId = '664abc123';
