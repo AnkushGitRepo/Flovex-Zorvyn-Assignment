@@ -910,7 +910,7 @@ function TryItOut({ ep }) {
     }
 
     const qs = queryParams.toString();
-    const url = `/api${path.replace('/api', '')}${qs ? `?${qs}` : ''}`;
+    const url = `${API_BASE}/api${path.replace('/api', '')}${qs ? `?${qs}` : ''}`;
 
     try {
       const opts = {
