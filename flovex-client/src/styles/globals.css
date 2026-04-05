@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Light theme (default) ──────────────────────────────────────── */
+:root {
+  /* Semantic tokens as RGB channels (no rgb() wrapper) for Tailwind opacity support */
+  --color-cream:  245 243 236;  /* #F5F3EC */
+  --color-dark:   26  26  31;   /* #1A1A1F */
+  --color-card:   255 255 255;  /* #FFFFFF */
+  --color-border: 236 234 227;  /* #ECEAE3 */
+  --color-muted:  155 155 173;  /* #9B9BAD */
+}
+
+/* ─── Dark theme ─────────────────────────────────────────────────── */
+.dark {
+  --color-cream:  15  15  20;   /* #0F0F14 */
+  --color-dark:   238 238 245;  /* #EEEEF5 */
+  --color-card:   24  24  31;   /* #18181F */
+  --color-border: 42  42  56;   /* #2A2A38 */
+  --color-muted:  107 107 128;  /* #6B6B80 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: rgb(var(--color-cream));
+  color: rgb(var(--color-dark));
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgb(var(--color-border)); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--color-muted)); }
+
+/* Shimmer keyframe for CTA button */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.btn-shimmer {
+  background: linear-gradient(90deg, #5046E4 25%, #7B72F0 50%, #5046E4 75%);
+  background-size: 200% auto;
+}
+
+.btn-shimmer:hover {
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* Mesh gradient blob */
+.mesh-blob {
+  background: radial-gradient(ellipse at 40% 40%, rgba(80,70,228,0.18) 0%, rgba(125,184,154,0.12) 50%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* Page transition wrapper */
+.page-transition {
+  min-height: 100%;
+}
+
+/* Recharts override */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
